@@ -1,0 +1,1 @@
+bowtie2-build -f ../reference/S288C_reference_Modificado.fa ../reference/S288C_reference_index_base

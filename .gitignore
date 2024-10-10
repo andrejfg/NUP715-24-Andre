@@ -1,3 +1,12 @@
-filtered_reads/*
+# fasta sequences files
 *.fa
 *.fastq
+
+# bowtie2 files
+*.bt2
+*.sam
+*.bam
+
+# fastqc output
+*.html
+*.zip
