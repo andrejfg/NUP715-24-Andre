@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Verifica se o input e output foram passados como argumentos
-if [ "$#" -ne 2 ]; then
-    echo "Uso: $0 <input.fastq> <output>"
+if [ "$#" -ne 1 ]; then
+    echo "Uso: $0 <input.fastq>"
     exit 1
 fi
 
@@ -13,9 +13,9 @@ trim_qual_step=1
 trim_qual_type=min
 min_len=30
 out_format=3
-
-# Lê o arquivo de configuração se existir
 config_file="prinseq.config"
+
+
 if [ -f "$config_file" ]; then
     while IFS='=' read -r key value; do
         case "$key" in
@@ -29,11 +29,15 @@ if [ -f "$config_file" ]; then
     done < "$config_file"
 fi
 
-mkdir -p ./filtered_reads
+filtered_dir_name="filtered_reads"
+out_good="./$filtered_dir_name/$(basename "${1%.*}")_filtered_Q${trim_qual_right}_${min_len}"
+out_bad="./$filtered_dir_name/bad"
+
+mkdir -p ./$filtered_dir_name
 
 prinseq-lite -verbose -fastq "$1" \
-    -out_good "./filtered_reads/$2" \
-    -out_bad bad \
+    -out_good "$out_good" \
+    -out_bad "$out_bad" \
     -trim_qual_right "$trim_qual_right" \
     -trim_qual_window "$trim_qual_window" \
     -trim_qual_step "$trim_qual_step" \
