@@ -10,3 +10,9 @@
 # fastqc output
 *.html
 *.zip
+
+*.vcf
+*.vcf.*
+
+*.fa
+*.fa.*

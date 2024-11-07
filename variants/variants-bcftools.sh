@@ -1,0 +1,1 @@
+bcftools call -c -v --ploidy 2 alignment.vcf.gz > variants.raw.vcf

@@ -1,0 +1,1 @@
+samtools view -b -S sra_S288C_bowtie2.sam > sra_S288C_bowtie2.bam

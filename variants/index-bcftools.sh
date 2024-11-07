@@ -1,0 +1,1 @@
+bcftools mpileup -f ../reference/S288C_reference_Modificado.fa -O z -o alignment.vcf.gz -m 10 ../bowtie2/sra_S288C_bowtie2.bam

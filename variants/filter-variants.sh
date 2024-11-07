@@ -1,0 +1,1 @@
+vcfutils.pl varFilter -d 30 variants.raw.vcf > variants.filtered.vcf

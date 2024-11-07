@@ -1,0 +1,1 @@
+samtools sort sra_S288C_bowtie2.bam -o sra_S288C_bowtie2_sorted.bam
